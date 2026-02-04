@@ -57,24 +57,31 @@ function showTab(tabId) {
   event.target.classList.add("active");
 }
 
-// Slider Functionality
-let currentSlide = 0;
+// Ganti fungsi slider lama dengan ini
+function changeSlide(direction, btn) {
+  // Cari slider terdekat dari tombol yang diklik
+  const slider = btn.closest(".slider");
+  const slidesContainer = slider.querySelector(".slides");
+  // Hanya hitung slide yang ada di dalam slider ini saja
+  const slides = slidesContainer.querySelectorAll(".slide, .slide-item");
+  const totalSlides = slides.length;
 
-function showSlide(index) {
-  const slides = document.querySelectorAll(".slide");
-  if (slides.length === 0) return;
-  if (index >= slides.length) currentSlide = 0;
-  if (index < 0) currentSlide = slides.length - 1;
-  document.querySelector(".slides").style.transform =
-    `translateX(-${currentSlide * 100}%)`;
+  // Ambil index saat ini dari atribut data (atau mulai dari 0)
+  let currentIdx = parseInt(slider.getAttribute("data-index") || "0");
+
+  currentIdx += direction;
+
+  // Logika Loop: balik ke awal atau ke paling akhir
+  if (currentIdx >= totalSlides) {
+    currentIdx = 0;
+  } else if (currentIdx < 0) {
+    currentIdx = totalSlides - 1;
+  }
+
+  // Simpan index baru ke atribut data slider tersebut
+  slider.setAttribute("data-index", currentIdx);
+
+  // Geser gambarnya
+  const offset = -currentIdx * 100;
+  slidesContainer.style.transform = `translateX(${offset}%)`;
 }
-
-function changeSlide(direction) {
-  currentSlide += direction;
-  showSlide(currentSlide);
-}
-
-// Auto-slide setiap 3 detik (opsional, hapus kalau gak mau)
-setInterval(() => {
-  changeSlide(1);
-}, 3000);

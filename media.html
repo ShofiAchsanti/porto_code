@@ -23,16 +23,14 @@
 
     <!-- Konten Media dengan Tab -->
     <section class="section glass">
-      <h2>Fotografi, Videografi, Design, & Editing</h2>
+      <h2>Fotografi, Videografi, Design, Editing, dll</h2>
 
       <!-- Tab Navigation -->
       <div class="tabs">
-        <div class="tab-card active" onclick="showTab('photography')">
-          Photography
-        </div>
+        <div class="tab-card active" onclick="showTab('design')">Design</div>
         <div class="tab-card" onclick="showTab('videography')">Videography</div>
         <div class="tab-card" onclick="showTab('editing')">Editing</div>
-        <div class="tab-card" onclick="showTab('design')">Design</div>
+        <div class="tab-card" onclick="showTab('photography')">Photography</div>
         <div class="tab-card" onclick="showTab('typography')">Typography</div>
         <div class="tab-card" onclick="showTab('otherDigitalThings')">
           Other Digital Things
@@ -40,32 +38,7 @@
       </div>
 
       <!-- Konten Tab -->
-      <div id="photography" class="tab-content active">
-        <div class="project">
-          <h3>Project 1: Wedding Photography</h3>
-          <img src="assets/photo1.jpg" alt="Photo" />
-        </div>
-        <!-- Tambah project lain -->
-      </div>
-
-      <div id="videography" class="tab-content">
-        <div class="project">
-          <h3>Project 1: Event Videography</h3>
-          <video controls src="assets/video1.mp4"></video>
-        </div>
-        <!-- Tambah project lain -->
-      </div>
-
-      <div id="editing" class="tab-content">
-        <div class="project">
-          <h3>Project 1: Video Editing</h3>
-          <p>Deskripsi editing project.</p>
-          <video controls src="assets/edited-video.mp4"></video>
-        </div>
-        <!-- Tambah project lain -->
-      </div>
-
-      <div id="design" class="tab-content">
+      <div id="design" class="tab-content active">
         <div class="project">
           <h3>Project Unaic: Mendesign Keperluan LJM</h3>
           <!-- Slider Container -->
@@ -113,8 +86,12 @@
               />
               <!-- Tambah gambar lain di sini -->
             </div>
-            <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
-            <button class="next" onclick="changeSlide(1)">&#10095;</button>
+            <button class="prev" onclick="changeSlide(-1, this)">
+              &#10094;
+            </button>
+            <button class="next" onclick="changeSlide(1, this)">
+              &#10095;
+            </button>
           </div>
         </div>
         <div class="project">
@@ -149,9 +126,38 @@
               />
               <!-- Tambah gambar lain di sini -->
             </div>
-            <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
-            <button class="next" onclick="changeSlide(1)">&#10095;</button>
+            <button class="prev" onclick="changeSlide(-1, this)">
+              &#10094;
+            </button>
+            <button class="next" onclick="changeSlide(1, this)">
+              &#10095;
+            </button>
           </div>
+        </div>
+        <!-- Tambah project lain -->
+      </div>
+
+      <div id="photography" class="tab-content">
+        <div class="project">
+          <h3>Project 1: Wedding Photography</h3>
+          <img src="assets/photo1.jpg" alt="Photo" />
+        </div>
+        <!-- Tambah project lain -->
+      </div>
+
+      <div id="videography" class="tab-content">
+        <div class="project">
+          <h3>Project 1: Event Videography</h3>
+          <video controls src="assets/video1.mp4"></video>
+        </div>
+        <!-- Tambah project lain -->
+      </div>
+
+      <div id="editing" class="tab-content">
+        <div class="project">
+          <h3>Project 1: Video Editing</h3>
+          <p>Deskripsi editing project.</p>
+          <video controls src="assets/edited-video.mp4"></video>
         </div>
         <!-- Tambah project lain -->
       </div>
