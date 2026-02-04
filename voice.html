@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vo Talent - Portofolio</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navigasi -->
+    <nav class="glass nav">
+      <a href="index.html">Home</a>
+      <a href="voice.html">Voice Talent</a>
+      <a href="uiux.html">UIUX</a>
+      <a href="web.html">Web</a>
+      <a href="media.html">Multimedia</a>
+      <a href="admin.html">Administrasi</a>
+    </nav>
+
+    <!-- Konten Vo Talent -->
+    <section class="section glass">
+      <h2>Vo Talent</h2>
+      <div class="project">
+        <h3>Project 1: Voiceover Komersial</h3>
+        <p>Deskripsi singkat: Suara untuk iklan produk.</p>
+        <button onclick="playAudio('assets/audio1.mp3')">Play</button>
+      </div>
+      <!-- Tambah project lain di sini -->
+      <audio id="introAudio" src="assets/intro.mp3" autoplay muted></audio>
+    </section>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

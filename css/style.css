@@ -1,0 +1,302 @@
+/* Reset dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #000000 0%, #425c42 100%);
+  color: #fff;
+  line-height: 1.6;
+  min-height: 100vh;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+/* Tema Glass */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.glass-btn {
+  display: inline-block;
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.glass-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+/* Navigasi */
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.5);
+}
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.3s;
+  pointer-events: auto;
+  position: relative;
+  z-index: 101;
+}
+.nav a:hover {
+  transform: scale(1.1);
+}
+
+/* Hamburger Menu untuk Mobile */
+.hamburger {
+  display: none; /* Hidden di desktop */
+  flex-direction: column;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 20px; /* Jauhin dari kanan biar gak mepet */
+}
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  margin: 3px 0;
+  transition: 0.3s;
+}
+.nav-links {
+  display: flex;
+}
+.nav-links.show {
+  display: flex !important;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  right: 20px; /* Sama kayak hamburger */
+  background: rgba(0, 0, 0, 0.9);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Sections */
+.section {
+  margin-top: 80px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.section h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+/* Projects */
+.project,
+.card {
+  margin-bottom: 20px;
+  transition: transform 0.3s;
+}
+.project:hover,
+.card:hover {
+  transform: translateY(-5px);
+}
+.card {
+  cursor: pointer;
+  display: inline-block;
+}
+.card img {
+  width: 100%;
+  border-radius: 10px;
+}
+video,
+img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+/* Tab Navigation */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+.tab-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition:
+    transform 0.3s,
+    background 0.3s;
+  font-weight: 600;
+}
+.tab-card:hover,
+.tab-card.active {
+  background: rgba(255, 255, 255, 0.527);
+  transform: scale(1.05);
+}
+
+/* Tab Content */
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+
+/* Landing Page */
+.landing {
+  text-align: center;
+  margin-top: 80px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.profile {
+  margin-bottom: 40px;
+}
+.profile-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+}
+.previews {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.preview-card {
+  width: 200px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.preview-card:hover {
+  transform: scale(1.05);
+}
+.preview-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Slider */
+.slider {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.slides {
+  display: flex;
+  transition: transform 0.5s ease;
+  max-height: 400px;
+  object-fit: cover;
+}
+.slide {
+  min-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: contain;
+}
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 18px;
+  transition: background 0.3s;
+}
+.prev:hover,
+.next:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+.prev {
+  left: 10px;
+}
+.next {
+  right: 10px;
+}
+
+/* Responsif untuk Slider */
+@media (max-width: 768px) {
+  .slide {
+    height: 200px;
+    object-fit: cover;
+  }
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .nav {
+    justify-content: space-between; /* Biar hamburger di kanan, links di kiri (tapi hidden) */
+    padding: 10px 20px;
+  }
+  .nav-links {
+    display: none; /* Hidden di mobile, muncul saat show */
+  }
+  .hamburger {
+    display: flex; /* Muncul cuma di mobile */
+  }
+  .section {
+    margin-top: 150px;
+    padding: 10px;
+  }
+  .section h2 {
+    font-size: 1.5rem;
+  }
+  .landing {
+    margin-top: 150px;
+  }
+  .previews {
+    flex-direction: column;
+    align-items: center;
+  }
+  .preview-card {
+    width: 80%;
+  }
+  .tabs {
+    flex-direction: column;
+    align-items: center;
+  }
+  .tab-card {
+    width: 80%;
+    text-align: center;
+  }
+}
