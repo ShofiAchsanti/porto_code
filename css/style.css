@@ -7,8 +7,9 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background: linear-gradient(135deg, #000000 0%, #425c42 100%);
-  color: #fff;
+  background: #ffffff;
+  /* background: linear-gradient(135deg, #000000 0%, #425c42 100%); */
+  color: #425c42;
   line-height: 1.6;
   min-height: 100vh;
   padding: 20px;
@@ -29,19 +30,20 @@ body {
 
 .glass-btn {
   display: inline-block;
-  padding: 4px 8px;
-  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 4px;
+  background: #425c42;
   backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid #425c42;
   border-radius: 8px;
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
   font-weight: 600;
   transition: 0.3s;
 }
 
 .glass-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: #ffffff;
+  color: #425c42;
   transform: translateY(-3px);
 }
 
@@ -126,6 +128,13 @@ body {
 .card {
   cursor: pointer;
   display: inline-block;
+}
+.card-full {
+  width: 100%;
+  display: block;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-sizing: border-box;
 }
 .card img {
   width: 100%;
@@ -252,6 +261,30 @@ img {
 }
 .next {
   right: 10px;
+}
+
+/* Container utama biar jadi sebelah-sebelahan */
+.project-flex {
+  display: flex;
+  gap: 20px; /* Jarak antar kotak (opsional) */
+  align-items: start; /* Biar sejajar dari atas */
+  margin-top: 20px;
+}
+
+/* Mengatur masing-masing item biar ukurannya pas */
+.item {
+  flex: 1; /* Otomatis bagi dua (50% - 50%) */
+  width: 0; /* Memastikan lebarnya konsisten */
+}
+
+/* BIAR NGGAK RUSAK DI HP (Responsive) */
+@media (max-width: 768px) {
+  .project-flex {
+    flex-direction: column; /* Di HP balik lagi tumpuk ke bawah */
+  }
+  .item {
+    width: 100%; /* Di HP jadi lebar penuh lagi */
+  }
 }
 
 /* Responsif untuk Slider */
