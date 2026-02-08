@@ -1,12 +1,22 @@
-// 1. Toggle Hamburger Menu
+// Toggle Hamburger Menu
 const hamburger = document.getElementById("hamburger");
 const navLinks = document.getElementById("navLinks");
 
 if (hamburger && navLinks) {
   hamburger.addEventListener("click", () => {
     navLinks.classList.toggle("show");
+
+    // Animasi simpel hamburger jadi X (Opsional)
+    hamburger.classList.toggle("toggle");
   });
 }
+
+// Tutup menu saat link diklik (Biar gak nutupin layar)
+document.querySelectorAll(".nav-links a").forEach((link) => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("show");
+  });
+});
 
 // 2. Klik di luar menu untuk menutup (khusus mobile)
 document.addEventListener("click", (e) => {

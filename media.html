@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fotografi & Videografi - Portofolio</title>
+    <title>Multimedia - Achsanti's Portofolio</title>
     <link rel="stylesheet" href="css/style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
@@ -11,38 +11,51 @@
     />
   </head>
   <body>
-    <!-- Navigasi -->
-    <nav class="glass nav">
-      <a href="index.html">Home</a>
-      <a href="voice.html">Voice Talent</a>
-      <a href="uiux.html">UIUX</a>
-      <a href="web.html">Web</a>
-      <a href="media.html">Multimedia</a>
-      <a href="admin.html">Administrasi</a>
+    <nav class="glass-nav">
+      <div class="nav-container">
+        <div class="logo">Achsanti<span>.</span></div>
+
+        <div class="hamburger" id="hamburger">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+
+        <div class="nav-links" id="navLinks">
+          <a href="index.html">Home</a>
+          <a href="voice.html">Voice Talent</a>
+          <a href="uiux.html">UIUX</a>
+          <a href="web.html">Web</a>
+          <a href="media.html" class="active">Multimedia</a>
+          <a href="admin.html">Administrasi</a>
+        </div>
+      </div>
     </nav>
 
-    <!-- Konten Media dengan Tab -->
     <section class="section glass">
       <h2>Fotografi, Videografi, Design, Editing, dll</h2>
 
-      <!-- Tab Navigation -->
-      <div class="tabs">
-        <div class="tab-card active" onclick="showTab('design')">Design</div>
-        <div class="tab-card" onclick="showTab('videography')">Videography</div>
-        <div class="tab-card" onclick="showTab('editing')">Editing</div>
-        <div class="tab-card" onclick="showTab('photography')">Photography</div>
-        <div class="tab-card" onclick="showTab('typography')">Typography</div>
-        <div class="tab-card" onclick="showTab('otherDigitalThings')">
-          Other Digital Things
+      <div class="tabs-container">
+        <div class="tabs">
+          <div class="tab-card active" onclick="showTab('design')">Design</div>
+          <div class="tab-card" onclick="showTab('videography')">
+            Videography
+          </div>
+          <div class="tab-card" onclick="showTab('editing')">Editing</div>
+          <div class="tab-card" onclick="showTab('photography')">
+            Photography
+          </div>
+          <div class="tab-card" onclick="showTab('typography')">Typography</div>
+          <div class="tab-card" onclick="showTab('otherDigitalThings')">
+            Other Digital Things
+          </div>
         </div>
       </div>
 
-      <!-- Konten Tab -->
       <div id="design" class="tab-content active">
         <div class="project">
           <h3>Project Unaic: Mendesign Keperluan LJM</h3>
-          <!-- Slider Container -->
-          <div class="slider">
+          <div class="slider" data-index="0">
             <div class="slides">
               <img
                 src="assets/img/design/ljm/rtm.png"
@@ -84,7 +97,6 @@
                 alt="Design Sertifikat Workshop"
                 class="slide"
               />
-              <!-- Tambah gambar lain di sini -->
             </div>
             <button class="prev" onclick="changeSlide(-1, this)">
               &#10094;
@@ -94,10 +106,10 @@
             </button>
           </div>
         </div>
+
         <div class="project">
           <h3>Project Lazis: Mendesign Keperluan Marketing</h3>
-          <!-- Slider Container -->
-          <div class="slider">
+          <div class="slider" data-index="0">
             <div class="slides">
               <img
                 src="assets/img/design/lazis/banner.png"
@@ -124,7 +136,6 @@
                 alt="Design Id Card"
                 class="slide"
               />
-              <!-- Tambah gambar lain di sini -->
             </div>
             <button class="prev" onclick="changeSlide(-1, this)">
               &#10094;
@@ -134,48 +145,54 @@
             </button>
           </div>
         </div>
-        <!-- Tambah project lain -->
       </div>
 
       <div id="photography" class="tab-content">
         <div class="project">
           <h3>Project 1: Wedding Photography</h3>
-          <img src="assets/photo1.jpg" alt="Photo" />
+          <img src="assets/photo1.jpg" alt="Photo" class="static-img" />
         </div>
-        <!-- Tambah project lain -->
       </div>
 
       <div id="videography" class="tab-content">
         <div class="project">
           <h3>Project 1: Event Videography</h3>
-          <video controls src="assets/video1.mp4"></video>
+          <video controls src="assets/video1.mp4" class="media-element"></video>
         </div>
-        <!-- Tambah project lain -->
       </div>
 
       <div id="editing" class="tab-content">
         <div class="project">
           <h3>Project 1: Video Editing</h3>
           <p>Deskripsi editing project.</p>
-          <video controls src="assets/edited-video.mp4"></video>
+          <video
+            controls
+            src="assets/edited-video.mp4"
+            class="media-element"
+          ></video>
         </div>
-        <!-- Tambah project lain -->
       </div>
 
       <div id="typography" class="tab-content">
         <div class="project">
           <h3>Project 1: Typography Design</h3>
-          <img src="assets/typography1.jpg" alt="Typography" />
+          <img
+            src="assets/typography1.jpg"
+            alt="Typography"
+            class="static-img"
+          />
         </div>
-        <!-- Tambah project lain -->
       </div>
 
       <div id="otherDigitalThings" class="tab-content">
         <div class="project">
           <h3>Project 1: Sosmed Spesialist Design</h3>
-          <img src="assets/aaa.jpg" alt="OtherDigitalThings" />
+          <img
+            src="assets/aaa.jpg"
+            alt="OtherDigitalThings"
+            class="static-img"
+          />
         </div>
-        <!-- Tambah project lain -->
       </div>
     </section>
 
