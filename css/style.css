@@ -1,6 +1,4 @@
-/* =========================================
-   1. RESET & GLOBAL STYLES
-   ========================================= */
+/* Reset dasar */
 * {
   margin: 0;
   padding: 0;
@@ -10,40 +8,37 @@
 body {
   font-family: "Poppins", sans-serif;
   background: #ffffff;
+  /* background: linear-gradient(135deg, #000000 0%, #425c42 100%); */
   color: #425c42;
   line-height: 1.6;
   min-height: 100vh;
   padding: 20px;
-  opacity: 0; /* Untuk efek fade-in di JS */
+  opacity: 0;
   transition: opacity 0.5s;
-  overflow-x: hidden;
 }
 
-/* =========================================
-   2. GLASSMORPHISM UTILITIES
-   ========================================= */
+/* Tema Glass */
 .glass {
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 15px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
-  padding: 25px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  padding: 20px;
   margin: 20px 0;
 }
 
 .glass-btn {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 2px 4px;
   background: #425c42;
+  backdrop-filter: blur(5px);
   border: 2px solid #425c42;
   border-radius: 8px;
   color: #ffffff;
   text-decoration: none;
   font-weight: 600;
   transition: 0.3s;
-  cursor: pointer;
 }
 
 .glass-btn:hover {
@@ -52,15 +47,14 @@ body {
   transform: translateY(-3px);
 }
 
-/* =========================================
-   3. NAVIGATION (GLASS NAV)
-   ========================================= */
+/* Navigasi */
+/* Navigasi Baru (Glassmorphism) */
 .glass-nav {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
@@ -79,7 +73,7 @@ body {
 
 .logo {
   font-weight: 600;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: #425c42;
 }
 
@@ -117,7 +111,11 @@ body {
   width: 100%;
 }
 
-/* Hamburger Menu */
+.nav-links a:hover {
+  color: #000;
+}
+
+/* Hamburger Styles */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -133,136 +131,150 @@ body {
   transition: 0.3s;
 }
 
-/* =========================================
-   4. LAYOUT & CARDS
-   ========================================= */
+/* Sections */
 .section {
-  margin-top: 100px; /* Jarak agar tidak tertutup nav */
+  margin-top: 80px;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
 }
+.section h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
 
+/* Projects */
 .project,
 .card {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   transition: transform 0.3s;
 }
-
-.project:hover {
+.project:hover,
+.card:hover {
   transform: translateY(-5px);
 }
-
+.card {
+  cursor: pointer;
+  display: inline-block;
+}
 .card-full {
   width: 100%;
   display: block;
   padding: 20px;
+  margin-bottom: 30px;
+  box-sizing: border-box;
+}
+.card img {
+  width: 100%;
+  border-radius: 10px;
+}
+video,
+img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
 }
 
+/* Tab Navigation */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+.tab-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition:
+    transform 0.3s,
+    background 0.3s;
+  font-weight: 600;
+}
+.tab-card:hover,
+.tab-card.active {
+  background: rgba(255, 255, 255, 0.527);
+  transform: scale(1.05);
+}
+
+/* Tab Content */
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+
+/* Landing Page */
+.landing {
+  text-align: center;
+  margin-top: 80px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.profile {
+  margin-bottom: 40px;
+}
 .profile-img {
   width: 150px;
   height: 150px;
   object-fit: cover;
   border-radius: 50%;
   margin-bottom: 20px;
-  border: 4px solid rgba(66, 92, 66, 0.1);
+  border: 3px solid rgba(255, 255, 255, 0.2);
 }
-
-/* Flexbox untuk konten sejajar (UIUX / Side-by-side) */
-.project-flex {
+.previews {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
-  align-items: start;
-  margin-top: 20px;
+  justify-content: center;
+}
+.preview-card {
+  width: 200px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.preview-card:hover {
+  transform: scale(1.05);
+}
+.preview-card img {
   width: 100%;
-}
-
-.item {
-  flex: 1;
-  min-width: 0;
-}
-
-/* =========================================
-   5. MULTIMEDIA (TABS & SLIDER)
-   ========================================= */
-/* Tab Navigation */
-/* Container Utama Tab */
-.tabs-container {
-  width: 100%;
-  overflow-x: auto;
-  white-space: nowrap;
-  padding: 10px 5px 15px 5px; /* Tambah padding bawah biar scrollbar gak nempel */
-  -webkit-overflow-scrolling: touch;
-
-  /* Scrollbar untuk Firefox */
-  scrollbar-width: thin;
-  scrollbar-color: #425c42 rgba(66, 92, 66, 0.1);
-
-  /* Tambahkan efek mask gradasi agar terlihat "bersambung" */
-  mask-image: linear-gradient(to right, black 90%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to right, black 90%, transparent 100%);
-}
-
-/* Styling Scrollbar untuk Chrome, Safari, dan Edge */
-.tabs-container::-webkit-scrollbar {
-  display: block; /* Munculkan lagi */
-  height: 4px; /* Buat tipis aja biar elegan */
-}
-
-.tabs-container::-webkit-scrollbar-track {
-  background: rgba(66, 92, 66, 0.05);
   border-radius: 10px;
 }
 
-.tabs-container::-webkit-scrollbar-thumb {
-  background: #425c42; /* Warna hijau khas Achsanti */
-  border-radius: 10px;
-}
-
-/* Biar tab-nya nggak terlalu mepet */
-.tabs {
-  display: inline-flex;
-  gap: 12px;
-  padding-right: 40px; /* Kasih ruang di akhir biar gradasinya enak dilihat */
-}
-
-.tab-card {
-  flex: 0 0 auto;
-  padding: 8px 18px;
-  background: rgba(66, 92, 66, 0.05);
-  border: 1px solid rgba(66, 92, 66, 0.1);
-  border-radius: 8px;
-  color: #425c42;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-.tab-card.active {
-  background: #425c42;
-  color: #fff;
-  box-shadow: 0 4px 12px rgba(66, 92, 66, 0.2);
-}
-
-/* Slider Logic */
+/* Slider */
+/* Container Slider */
 .slider {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9; /* Menjaga proporsi desain */
+  aspect-ratio: 16 / 9; /* Proporsi standar desktop */
+  background: #f4f4f4; /* Background abu tipis biar area kosong gak bolong */
   overflow: hidden;
-  border-radius: 15px;
-  background: #f9f9f9;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
 }
 
+/* Container Slides */
 .slides {
   display: flex;
+  width: 100%;
   height: 100%;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease;
 }
 
+/* Gambar Slide (Kuncinya di sini!) */
 .slide {
   min-width: 100%;
   height: 100%;
-  object-fit: contain; /* Gambar utuh, tidak terpotong */
+  /* Ganti 'cover' jadi 'contain' biar gambar UTUH gak kepotong */
+  object-fit: contain;
+  display: block;
 }
 
 .prev,
@@ -270,75 +282,118 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(66, 92, 66, 0.7);
+  background: rgba(0, 0, 0, 0.5);
   color: #fff;
   border: none;
-  padding: 12px;
+  padding: 10px;
   cursor: pointer;
   border-radius: 50%;
-  z-index: 10;
+  font-size: 18px;
+  transition: background 0.3s;
 }
-
+.prev:hover,
+.next:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
 .prev {
-  left: 15px;
+  left: 10px;
 }
 .next {
-  right: 15px;
+  right: 10px;
 }
 
-/* =========================================
-   6. RESPONSIVE MEDIA QUERIES
-   ========================================= */
+/* Container utama biar jadi sebelah-sebelahan */
+.project-flex {
+  display: flex;
+  gap: 20px; /* Jarak antar kotak (opsional) */
+  align-items: start; /* Biar sejajar dari atas */
+  margin-top: 20px;
+}
+
+/* Mengatur masing-masing item biar ukurannya pas */
+.item {
+  flex: 1; /* Otomatis bagi dua (50% - 50%) */
+  width: 0; /* Memastikan lebarnya konsisten */
+}
+
+/* BIAR NGGAK RUSAK DI HP (Responsive) */
 @media (max-width: 768px) {
-  /* Nav Mobile */
+  .project-flex {
+    flex-direction: column; /* Di HP balik lagi tumpuk ke bawah */
+  }
+  .item {
+    width: 100%; /* Di HP jadi lebar penuh lagi */
+  }
+}
+
+/* Responsif untuk Slider */
+@media (max-width: 768px) {
+  .slider {
+    /* Di HP buat lebih kotak (1:1) biar cover desainnya gak kekecilan */
+    aspect-ratio: 1 / 1;
+  }
+
+  .slide {
+    /* Pastikan tetap contain */
+    object-fit: contain;
+  }
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .section {
+    margin-top: 150px;
+    padding: 10px;
+  }
+  .section h2 {
+    font-size: 1.5rem;
+  }
+  .landing {
+    margin-top: 150px;
+  }
+  .previews {
+    flex-direction: column;
+    align-items: center;
+  }
+  .preview-card {
+    width: 80%;
+  }
+  .tabs {
+    flex-direction: column;
+    align-items: center;
+  }
+  .tab-card {
+    width: 80%;
+    text-align: center;
+  }
+}
+
+/* Responsif Mobile */
+@media (max-width: 768px) {
   .hamburger {
     display: flex;
   }
 
   .nav-links {
     position: fixed;
-    top: -100vh;
+    top: -100vh; /* Sembunyi di atas */
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(255, 255, 255, 0.98);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: 0.5s ease;
+    transition: 0.5s ease-in-out;
     z-index: -1;
   }
 
   .nav-links.show {
-    top: 0;
+    top: 0; /* Muncul ke bawah */
   }
+
   .nav-links a {
-    font-size: 1.4rem;
-  }
-
-  /* Content Mobile */
-  .section {
-    margin-top: 120px;
-    padding: 15px;
-  }
-
-  .project-flex {
-    flex-direction: column;
-  }
-  .item {
-    width: 100%;
-  }
-
-  .slider {
-    aspect-ratio: 4 / 3;
-  } /* Lebih kotak di HP */
-
-  .previews {
-    flex-direction: column;
-    align-items: center;
-  }
-  .preview-card {
-    width: 100%;
-    max-width: 300px;
+    font-size: 1.5rem;
   }
 }
