@@ -67,31 +67,53 @@ function showTab(tabId) {
   event.target.classList.add("active");
 }
 
-// Ganti fungsi slider lama dengan ini
 function changeSlide(direction, btn) {
-  // Cari slider terdekat dari tombol yang diklik
   const slider = btn.closest(".slider");
   const slidesContainer = slider.querySelector(".slides");
-  // Hanya hitung slide yang ada di dalam slider ini saja
+
+  // KUNCI PERBAIKAN: Mencari elemen .slide ATAU .slide-item
   const slides = slidesContainer.querySelectorAll(".slide, .slide-item");
   const totalSlides = slides.length;
 
-  // Ambil index saat ini dari atribut data (atau mulai dari 0)
-  let currentIdx = parseInt(slider.getAttribute("data-index") || "0");
+  if (totalSlides === 0) return;
 
+  const isMultiple = slider.classList.contains("slider-multiple");
+  let itemsInView = isMultiple ? (window.innerWidth <= 768 ? 2 : 4) : 1;
+
+  // Cek apakah perlu digeser (misal foto cuma 1, ya jangan digeser)
+  if (totalSlides <= itemsInView) return;
+
+  let currentIdx = parseInt(slider.getAttribute("data-index") || "0");
   currentIdx += direction;
 
-  // Logika Loop: balik ke awal atau ke paling akhir
-  if (currentIdx >= totalSlides) {
+  // Logika Looping: Kembali ke awal atau lompat ke akhir
+  if (currentIdx > totalSlides - itemsInView) {
     currentIdx = 0;
   } else if (currentIdx < 0) {
-    currentIdx = totalSlides - 1;
+    currentIdx = totalSlides - itemsInView;
   }
 
-  // Simpan index baru ke atribut data slider tersebut
   slider.setAttribute("data-index", currentIdx);
 
-  // Geser gambarnya
-  const offset = -currentIdx * 100;
+  // Hitung pergeseran
+  const offset = -currentIdx * (100 / itemsInView);
   slidesContainer.style.transform = `translateX(${offset}%)`;
+
+  // Pastikan tata letak tidak bergeser aneh saat di-klik
+  slidesContainer.style.justifyContent = "flex-start";
 }
+
+// Fungsi untuk menjalankan slider otomatis
+function initAutoSlide() {
+  const allSliders = document.querySelectorAll(".slider:not(.slider-multiple)");
+
+  allSliders.forEach((slider) => {
+    setInterval(() => {
+      const nextBtn = slider.querySelector(".next");
+      if (nextBtn) nextBtn.click();
+    }, 5000); // Ganti gambar setiap 5 detik
+  });
+}
+
+// Jalankan saat halaman sudah selesai loading
+window.addEventListener("load", initAutoSlide);

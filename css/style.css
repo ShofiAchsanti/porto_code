@@ -23,7 +23,7 @@ body {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 15px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(89, 89, 89, 0.1);
   padding: 20px;
   margin: 20px 0;
 }
@@ -154,8 +154,12 @@ body {
   transform: translateY(-5px);
 }
 .card {
+  display: block; /* Ganti dari inline-block ke block */
+  width: 100%; /* Paksa lebar penuh agar seragam */
+  margin-bottom: 25px;
+  padding: 20px;
   cursor: pointer;
-  display: inline-block;
+  transition: transform 0.3s;
 }
 .card-full {
   width: 100%;
@@ -173,6 +177,13 @@ img {
   max-width: 100%;
   border-radius: 10px;
   margin-top: 10px;
+}
+
+/* Poles sedikit tampilan audio player */
+audio.media-element {
+  filter: sepia(20%) saturate(70%) hue-rotate(90deg) brightness(95%); /* Efek warna hijau soft */
+  opacity: 0.9;
+  border-radius: 8px;
 }
 
 /* Tab Navigation */
@@ -252,6 +263,7 @@ img {
 .slider {
   position: relative;
   width: 100%;
+  height: 400px;
   aspect-ratio: 16 / 9; /* Proporsi standar desktop */
   background: #f4f4f4; /* Background abu tipis biar area kosong gak bolong */
   overflow: hidden;
@@ -274,6 +286,34 @@ img {
   height: 100%;
   /* Ganti 'cover' jadi 'contain' biar gambar UTUH gak kepotong */
   object-fit: contain;
+  display: block;
+}
+
+/* Container Utama Slide */
+.slider-multiple .slides {
+  display: flex;
+  gap: 15px;
+  justify-content: center; /* Kunci agar foto yang kurang dari 4 otomatis ke tengah */
+  transition: transform 0.4s ease-in-out;
+}
+
+/* Bingkai Foto 4:5 */
+.slide-item {
+  flex: 0 0 calc(25% - 12px); /* Tetap 4 kolom di laptop */
+  aspect-ratio: 4 / 5; /* Perbandingan tinggi potret */
+  background: rgba(66, 92, 66, 0.05); /* Background kalem ala Lazis */
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Foto di dalam Bingkai */
+.slide-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Foto utuh, tidak terpotong, tidak stretch */
   display: block;
 }
 
@@ -316,6 +356,144 @@ img {
   width: 0; /* Memastikan lebarnya konsisten */
 }
 
+/* Memberikan ruang bernafas antar section */
+.skill {
+  margin-bottom: 50px; /* Jarak bawah dari section software */
+}
+
+.highlight h2 {
+  margin-top: 20px;
+  margin-bottom: 30px; /* Jarak judul ke kartu project */
+}
+
+/* Pastikan grid ikon tetap rapi */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px; /* Jarak antar ikon */
+  padding: 10px 0;
+}
+
+.skill-card {
+  min-width: 100px;
+  width: auto;
+  padding: 15px 12px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease; /* Transisi smooth untuk glow */
+}
+
+/* Biar teksnya gak pecah jadi dua baris kalau gak perlu */
+.skill-card p {
+  white-space: nowrap;
+  font-size: 0.75rem; /* Sedikit dikecilkan agar pas */
+  margin-top: 8px;
+  font-weight: 600;
+  color: #425c42;
+}
+
+.skill-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.4);
+  /* Efek cahaya hijau khas Achsanti */
+  box-shadow: 0 0 10px rgba(66, 92, 66, 0.2);
+  border-color: #425c42;
+}
+
+.skill-card i {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* Custom Icon Styling (Mendeley & CapCut) */
+.custom-icon {
+  width: 40px;
+  height: 40px;
+  color: white;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.4rem;
+  margin: 0 auto 10px auto;
+}
+
+/* Footer Glassmorphism */
+.footer-glass {
+  margin-top: 50px;
+  padding: 30px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  color: #425c42;
+}
+
+.footer-content p {
+  font-size: 0.9rem;
+  font-weight: 300;
+  margin-bottom: 15px;
+}
+
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-socials a {
+  text-decoration: none;
+  color: #425c42;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: 0.3s;
+}
+
+.footer-socials a:hover {
+  color: #000;
+  transform: scale(1.1);
+}
+
+/* Kontainer Video Responsif */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* Rasio Aspek 16:9 (9 / 16 * 100%) */
+  height: 0;
+  overflow: hidden;
+  margin-top: 15px;
+  border-radius: 12px; /* Opsional: biar sudutnya melengkung senada dengan desainmu */
+  background: #000; /* Opsional: warna latar saat loading */
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Responsif Mobile */
+@media (max-width: 768px) {
+  .skill-card {
+    width: 80px;
+    padding: 10px;
+  }
+  .skill-card i {
+    font-size: 2rem;
+  }
+}
+
 /* BIAR NGGAK RUSAK DI HP (Responsive) */
 @media (max-width: 768px) {
   .project-flex {
@@ -336,6 +514,24 @@ img {
   .slide {
     /* Pastikan tetap contain */
     object-fit: contain;
+  }
+}
+
+/* Responsif Mobile */
+@media (max-width: 768px) {
+  .slide-item {
+    flex: 0 0 calc(50% - 10px); /* Muncul 2 foto di HP */
+  }
+  .slider-multiple .slides {
+    justify-content: flex-start; /* Di HP biasanya lebih enak rata kiri biar bisa di-swipe */
+    padding-left: 10px;
+  }
+}
+
+/* Biar di HP tetep rapi (muncul 2 foto aja biar gak kekecilan) */
+@media (max-width: 768px) {
+  .slider-multiple .slide {
+    min-width: calc(50% - 10px);
   }
 }
 
